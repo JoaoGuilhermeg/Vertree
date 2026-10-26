@@ -12,17 +12,24 @@ const nested: SplitterItem[] = [
   { slot: 'top', minSize: 20, class: card },
   { slot: 'bottom', minSize: 20, class: card }
 ]
-</script>
+</script> 
 
 <template>
   <div class="w-full h-215">
-    <USplitter id="splitter-nested-example" :items="items">
+    <USplitter
+      id="splitter-nested-example"
+      :items="items" 
+    >
       <template #left>
         Sistemas
       </template>
-
+      
       <template #right>
-        <USplitter id="splitter-nested-example-inner" orientation="vertical" :items="nested">
+        <USplitter
+          id="splitter-nested-example-inner"
+          orientation="vertical"
+          :items="nested"
+        >
           <template #top>
             Sistemas
           </template>
@@ -35,4 +42,3 @@ const nested: SplitterItem[] = [
     </USplitter>
   </div>
 </template>
-

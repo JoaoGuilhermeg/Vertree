@@ -57,8 +57,6 @@ const items: NavigationMenuItem[] = [
         :items="items"
         orientation="vertical"
         :collapsed="!open"
-        
-        
       />
     </div>
   </aside>
