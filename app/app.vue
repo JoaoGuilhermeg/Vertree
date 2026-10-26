@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { main } from '#build/ui';
-
 useHead({
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' }
@@ -30,7 +28,7 @@ useSeoMeta({
   <UApp>
     <UMain class="flex min-h-screen w-full">
       <AppSidebar />
-      <main class="flex-1 min-w-0 p-6 overflow-y-auto" >
+      <main class="flex-1 min-w-0 p-6 overflow-y-auto">
         <NuxtPage />
       </main>
     </UMain>

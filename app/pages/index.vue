@@ -9,6 +9,5 @@
     <p class="text-muted mt-2">
       Gerencie o versionamento das suas aplicações.
     </p>
-    
   </div>
 </template>

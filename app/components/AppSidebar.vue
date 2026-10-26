@@ -29,10 +29,16 @@ const items: NavigationMenuItem[] = [
     class="shrink-0 h-screen sticky top-0 flex flex-col border-r border-default bg-default transition-all duration-200 z-30"
     :class="open ? 'w-64' : 'w-16'"
   >
-    <!-- Sidebar-->
+    <!-- Sidebar -->
     <div class="h-14 shrink-0 flex items-center justify-between px-4 border-b border-default">
-      <div v-if="open" class="flex items-center gap-2">
-        <UIcon name="i-lucide-box" class="size-6 text-primary" />
+      <div
+        v-if="open"
+        class="flex items-center gap-2"
+      >
+        <UIcon
+          name="i-lucide-box"
+          class="size-6 text-primary"
+        />
         <span class="font-bold text-sm tracking-wide">Vertree</span>
       </div>
 
