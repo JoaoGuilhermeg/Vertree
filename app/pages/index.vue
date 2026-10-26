@@ -1,13 +1,38 @@
 <script setup lang="ts">
+import type { SplitterItem } from '@nuxt/ui'
+
+const card = 'bg-elevated/50 border border-default rounded-xl items-center justify-center text-muted font-medium'
+
+const items: SplitterItem[] = [
+  { slot: 'left', minSize: 20, class: card },
+  { slot: 'right', minSize: 20 }
+]
+
+const nested: SplitterItem[] = [
+  { slot: 'top', minSize: 20, class: card },
+  { slot: 'bottom', minSize: 20, class: card }
+]
 </script>
 
 <template>
-  <div class="p-6">
-    <h1 class="text-2xl font-bold">
-      Bem-vindo ao Vertree
-    </h1>
-    <p class="text-muted mt-2">
-      Gerencie o versionamento das suas aplicações.
-    </p>
+  <div class="w-full h-215">
+    <USplitter id="splitter-nested-example" :items="items">
+      <template #left>
+        Sistemas
+      </template>
+
+      <template #right>
+        <USplitter id="splitter-nested-example-inner" orientation="vertical" :items="nested">
+          <template #top>
+            Sistemas
+          </template>
+
+          <template #bottom>
+            Módulos
+          </template>
+        </USplitter>
+      </template>
+    </USplitter>
   </div>
 </template>
+

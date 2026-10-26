@@ -39,14 +39,14 @@ const items: NavigationMenuItem[] = [
           name="i-lucide-box"
           class="size-6 text-primary"
         />
-        <span class="font-bold text-sm tracking-wide">Vertree</span>
+        <span class="font-bold tracking-wide text-xl">Vertree</span>
       </div>
 
       <UButton
         icon="i-lucide-panel-left"
         color="neutral"
         variant="ghost"
-        aria-label="Alternar sidebar"
+        aria-label="Alternar Sidebar"
         @click="open = !open"
       />
     </div>
@@ -57,6 +57,8 @@ const items: NavigationMenuItem[] = [
         :items="items"
         orientation="vertical"
         :collapsed="!open"
+        
+        
       />
     </div>
   </aside>
