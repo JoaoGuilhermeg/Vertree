@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { SplitterItem } from '@nuxt/ui'
 
-const card = 'bg-elevated/50 border border-default rounded-xl items-center justify-center text-muted font-medium'
+const card = 'flex bg-elevated/50 border border-default rounded-xl items-center justify-center text-muted font-medium'
 
 const items: SplitterItem[] = [
   { slot: 'left', minSize: 20, class: card },
@@ -12,18 +12,17 @@ const nested: SplitterItem[] = [
   { slot: 'top', minSize: 20, class: card },
   { slot: 'bottom', minSize: 20, class: card }
 ]
-</script> 
+</script>
 
 <template>
-  <div class="w-full h-215">
+  <div class="flex w-full h-full">
     <USplitter
       id="splitter-nested-example"
-      :items="items" 
+      :items="items"
     >
       <template #left>
-        Sistemas
+        Aplicações
       </template>
-      
       <template #right>
         <USplitter
           id="splitter-nested-example-inner"
@@ -33,7 +32,6 @@ const nested: SplitterItem[] = [
           <template #top>
             Sistemas
           </template>
-
           <template #bottom>
             Módulos
           </template>
