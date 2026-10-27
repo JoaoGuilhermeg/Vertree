@@ -26,19 +26,8 @@ useSeoMeta({
 
 <template>
   <UApp>
-    <UMain class="flex min-h-screen w-full">
-      <AppSidebar />
-      <main class="flex-1 min-w-0 p-6 overflow-y-auto">
-        <NuxtPage />
-      </main>
-    </UMain>
-
-    <UFooter>
-      <template #default>
-        <p class="text-sm text-muted text-center">
-          Vertree • © {{ new Date().getFullYear() }}
-        </p>
-      </template>
-    </UFooter>
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
   </UApp>
 </template>

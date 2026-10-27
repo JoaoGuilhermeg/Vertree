@@ -10,12 +10,13 @@ const items: NavigationMenuItem[] = [
   {
     label: 'Visão Geral',
     icon: 'i-lucide-eye',
-    to: '/'
+    to: '/auth'
   },
   {
     label: 'Sistemas',
     icon: 'i-lucide-square-stack',
-    badge: '4'
+    to: '',
+    badge: '10'
   },
   {
     label: 'Configurações',

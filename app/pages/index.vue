@@ -5,7 +5,7 @@ const card = 'flex bg-elevated/50 border border-default rounded-xl items-center 
 
 const items: SplitterItem[] = [
   { slot: 'left', minSize: 20, class: card },
-  { slot: 'right', minSize: 20 }
+  { slot: 'right', minSize: 70 }
 ]
 
 const nested: SplitterItem[] = [
@@ -15,10 +15,11 @@ const nested: SplitterItem[] = [
 </script>
 
 <template>
-  <div class="flex w-full h-full">
+  <div class="flex w-full h-screen p-4">
     <USplitter
       id="splitter-nested-example"
       :items="items"
+      class="w-full h-full"
     >
       <template #left>
         Aplicações
@@ -28,6 +29,7 @@ const nested: SplitterItem[] = [
           id="splitter-nested-example-inner"
           orientation="vertical"
           :items="nested"
+          class="w-full h-full"
         >
           <template #top>
             Sistemas
