@@ -25,9 +25,11 @@ useSeoMeta({
 </script>
 
 <template>
-  <UApp>
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
-  </UApp>
+  <div class="h-screen w-screen overflow-hidden">
+    <UApp>
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
+    </UApp>
+  </div>
 </template>
