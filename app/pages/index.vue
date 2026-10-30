@@ -1,16 +1,15 @@
 <script setup lang="ts">
 import type { SplitterItem } from '@nuxt/ui'
-import { id } from 'zod/locales'
 
 // Scroll
 const scrollablePanel = 'flex flex-col h-full w-full bg-elevated/50 border border-default rounded-xl p-4 overflow-y-auto'
 
 // Estilo para painéis de conteúdo simples/centralizado
-const centeredCard = 'flex items-center justify-center h-full w-full bg-elevated/50 border border-default rounded-xl text-muted font-medium'
+// const centeredCard = 'flex items-center justify-center h-full w-full bg-elevated/50 border border-default rounded-xl text-muted font-medium'
 
 const items: SplitterItem[] = [
-  { slot: 'left', minSize: 15, defaultSize: 25, class: scrollablePanel },
-  { slot: 'right', minSize: 30, defaultSize: 75 }
+  { slot: 'left', minSize: 15, maxSize: 30, defaultSize: 25, class: scrollablePanel },
+  { slot: 'right', minSize: 30, maxSize: 30, defaultSize: 75 }
 ]
 
 const nested: SplitterItem[] = [
@@ -84,12 +83,12 @@ function selectionAplicacao(id: number) {
   selectAplicationId.value = id
   selectSystemId.value = null // zera o sistema ao trocar de aplicação
 }
-const abas = [{
-  label: 'Atualizações disponíveis',
-  icon: 'i-lucide-arrow-down',
-  slot: 'atualizacao'
-}
-]
+// const abas = [{
+//  label: 'Atualizações disponíveis',
+//  icon: 'i-lucide-arrow-down',
+//  slot: 'atualizacao'
+// }
+// ]
 </script>
 
 <template>
@@ -98,6 +97,7 @@ const abas = [{
       id="splitter-nested-example"
       :items="items"
       class="w-full h-full"
+      disabledsss
     >
       <!-- Painel Esquerdo: lista -->
       <template #left>
@@ -105,7 +105,7 @@ const abas = [{
           <!-- topo: Título + botao de adicionar -->
           <div class="flex items-center justify-between shrink-0">
             <div class="flex items-center gap-2">
-              <span class="font-bold text-sm">Aplicações</span>
+              <span class="font-bold text-sm">Softwares</span>
               <!-- Coloque aqui um UButton para adicionar -->
               <UBadge
                 size="xs"
@@ -119,16 +119,17 @@ const abas = [{
               icon="i-heroicons-plus"
               size="xs"
               variant="solid"
-              @click=""
             >
+              <!-- @click=="" dentro do Ubutoon -->
               Adicionar novo Software
             </UButton>
           </div>
 
           <!-- filtros de busca e Select de categoria -->
           <div class="shrink-0 space-y-2">
-            <!-- pesquisa--->
+            <!-- pesquisa -->
             <UInput
+              v-model="searchText"
               icon="i-heroicons-magnifying-glass"
               placeholder="Pesquisar Software"
               size="xs"
@@ -141,6 +142,8 @@ const abas = [{
               <USelect
                 v-model="categSelect"
                 :items="['Todos', 'Web', 'Mobile', 'Desktop']"
+                size="xs"
+                class="w-full"
               />
             </div>
           </div>
@@ -154,14 +157,18 @@ const abas = [{
               :class="[
                 'p-3 rounded-lg border cursor-pointer transition-all',
                 selectAplicationId === app.id
-                  ? 'border-primary bg-primary/10 shadow-sm'
+                  ? 'border-primary bg-primary/45 shadow-sm'
                   :'border-default bg-elevated/40 hover:border-muted'
               ]"
               @click="selectionAplicacao(app.id)"
             >
               <div class="flex items-center justify-between mb-1">
                 <span class="text-sm font-semibold">{{ app.name }}</span>
-                <UBadge class="flex items-center justify-between mb-1">
+                <UBadge
+                  size="xs"
+                  variant="outline"
+                  color="neutral"
+                >
                   {{ app.categ }}
                 </UBadge>
               </div>
